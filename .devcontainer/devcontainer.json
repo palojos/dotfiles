@@ -1,0 +1,4 @@
+{
+  "name": "Debian Trixie Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:trixie"
+}
