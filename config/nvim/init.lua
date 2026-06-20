@@ -35,3 +35,33 @@ vim.cmd([[
   highlight VertSplit guifg=#313244 guibg=NONE
 ]])
 
+-- Lazy.nvim setup
+-- 1. Map your leader key to Space (crucial to do BEFORE loading plugins)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- 2. Automatically download lazy.nvim from GitHub if it's missing
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }):wait()
+  if out.code ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out.stderr, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- 3. Execute lazy.nvim and tell it to load everything inside lua/plugins/
+require("lazy").setup({
+  spec = {
+    { import = "plugins" }, -- This automatically scans the lua/plugins folder!
+  },
+  install = { colorscheme = { "habamax" } },
+  checker = { enabled = false }, -- Prevents random background update notifications
+})
