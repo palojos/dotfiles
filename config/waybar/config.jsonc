@@ -1,8 +1,10 @@
+[
 {
     "layer": "top", 
     "position": "top", 
     "height": 32, 
     "spacing": 4, 
+    "output": "DP-1",
     
     // Choose which modules load on the Left, Center, and Right of your bar
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
@@ -13,10 +15,10 @@
 
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
-            "1": "  ",      // Web + Terminal combo for your main ultrawide layer
+            "1": "",      // Web + Terminal combo for your main ultrawide layer
             "2": "󰅩",         // Dedicated developer workspace signature
             "3": "󰓓",         // Official Valve Steam gaming glyph
             "default": ""    // Bullet fallback for any dynamic layouts you make later
@@ -74,4 +76,26 @@
         "icon-size": 16,
         "spacing": 10
     }
+},
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "output": "DP-2", // Locks this minimal layout onto your vertical coding monitor
+
+    // Minimal setup: Only keep workspaces on the left edge, clear everything else out
+    "modules-left": ["sway/workspaces"],
+    "modules-center": [],
+    "modules-right": [],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "4": "",
+            "default": ""
+        }
+    }
 }
+]

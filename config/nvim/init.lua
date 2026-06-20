@@ -35,6 +35,9 @@ vim.cmd([[
   highlight VertSplit guifg=#313244 guibg=NONE
 ]])
 
+vim.keymap.set("v", "<", "<gv", { desc = "Shift indent left and keep selection" })
+vim.keymap.set("v", ">", ">gv", { desc = "Shift indent right and keep selection" })
+
 -- Lazy.nvim setup
 -- 1. Map your leader key to Space (crucial to do BEFORE loading plugins)
 vim.g.mapleader = " "

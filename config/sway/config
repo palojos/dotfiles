@@ -14,14 +14,24 @@ set $menu rofi -show drun -show-icons
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.config/sway/wallpapers/catppuccino-mocha-mountains.jpg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+# 1. Main Ultrawide Display - Maximized to 100Hz
+output DP-1 {
+    mode 3440x1440@99.982Hz
+    pos 0 0
+}
+
+# 2. Secondary Portrait Display - Rotated and Maxed to 144Hz
+output DP-2 {
+    mode 1920x1080@144.001Hz
+    transform 90
+    pos 3440 -240
+}
+
+workspace 1 output DP-1
+workspace 2 output DP-1
+workspace 3 output DP-1
+workspace 4 output DP-2
 
 ### Border configuration and eye candy stuff
 gaps inner 12
@@ -242,6 +252,7 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
+exec_always killall swaybg; swaybg -i ~/.config/sway/wallpapers/catppuccino-mocha-mountains.jpg -m fill
 exec_always killall waybar; waybar
 
 include /etc/sway/config.d/*
