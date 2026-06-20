@@ -10,7 +10,7 @@ set $right l
 # Your preferred terminal emulator
 set $term GTK_IM_MODULE=simple ghostty --gtk-single-instance=false
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu rofi -show drun -show-icons
 
 ### Output configuration
 #
@@ -102,6 +102,7 @@ for_window [app_id="rofi"] opacity 0.95, blur disable
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Tab exec rofi -show window -show-icons
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
