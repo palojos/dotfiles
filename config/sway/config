@@ -33,6 +33,9 @@ workspace 2 output DP-1
 workspace 3 output DP-1
 workspace 4 output DP-2
 
+# application binding
+assign [class="Steam"] workspace 3
+
 ### Border configuration and eye candy stuff
 gaps inner 12
 gaps outer 4
@@ -252,7 +255,7 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
-exec_always killall swaybg; swaybg -i ~/.config/sway/wallpapers/catppuccino-mocha-mountains.jpg -m fill
-exec_always killall waybar; waybar
+exec swaybg -i ~/.config/sway/wallpapers/catppuccino-mocha-mountains.jpg -m fill
+exec waybar
 
 include /etc/sway/config.d/*
