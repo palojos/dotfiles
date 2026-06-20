@@ -6,6 +6,7 @@
     sort = -committerdate
 
 [tag]
+    gpgsign = true
     sort = version:refname
 
 [init]
@@ -53,3 +54,11 @@
     s = status -sb --renames -u -M
     l = log --oneline
     unstage = reset HEAD --
+
+[commit]
+    gpgsign = true
+
+[user]
+    signingkey = 1A58F8DB4CA4E74E 
+    email = oskari@palojarvi.fi
+    name = Oskari Palojärvi
