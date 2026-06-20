@@ -1,0 +1,85 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Helvetica", "Arial", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: #1e1e2e; /* Catppuccin Mocha Base */
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* Individual Module Blocks Styling */
+#workspaces button {
+    padding: 0 12px;
+    background-color: transparent;
+    color: #a6adc8;
+    margin: 4px;
+}
+
+#workspaces button.focused {
+    color: #cba6f7; /* Mauve Accent */
+    background-color: #313244;
+    border-bottom: 2px solid #cba6f7;
+}
+
+#workspaces button:hover {
+    background-color: #313244;
+    color: #cdd6f4;
+}
+
+/* Base style for every right/center pill */
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#battery,
+#bluetooth,
+#tray {
+    padding: 0 14px;
+    margin: 4px 2px;
+    background-color: #313244; /* Surface color */
+    color: #cdd6f4;
+    border-radius: 6px;
+}
+
+/* Make specific blocks pop with subtle colors */
+#clock {
+    color: #89b4fa; /* Blue accent for time */
+    background-color: #11111b;
+}
+
+#pulseaudio {
+    color: #a6e3a1; /* Green accent for Audio */
+}
+
+#bluetooth {
+    color: #89b4fa; /* Catppuccin Blue */
+}
+
+#bluetooth.connected {
+    color: #b4befe; /* Light lavender-blue when actively paired */
+}
+
+#bluetooth.discoverable {
+    color: #f9e2af; /* Yellow warning tint when pairing mode is active */
+}
+
+#battery.charging, #battery.plugged {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #f9e2af; /* Yellow for low battery */
+    color: #11111b;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f38ba8; /* Red for urgent battery */
+    color: #11111b;
+}

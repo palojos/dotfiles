@@ -1,0 +1,77 @@
+{
+    "layer": "top", 
+    "position": "top", 
+    "height": 32, 
+    "spacing": 4, 
+    
+    // Choose which modules load on the Left, Center, and Right of your bar
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "bluetooth", "network", "cpu", "memory", "tray"],
+
+    // --- MODULE CONFIGURATIONS ---
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "  ",      // Web + Terminal combo for your main ultrawide layer
+            "2": "󰅩",         // Dedicated developer workspace signature
+            "3": "󰓓",         // Official Valve Steam gaming glyph
+            "default": ""    // Bullet fallback for any dynamic layouts you make later
+        }
+    },
+
+    "clock": {
+        "timezone": "Europe/Helsinki",
+        "format": "  {:%H:%M  |  󰃭  %a, %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "󰂯 {icon} {volume}%",
+        "format-muted": "󰝟  Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format-wifi": "   {essid}",
+        "format-ethernet": "󰈀  {ipaddr}/{cidr}",
+        "format-disconnected": "󰖪  Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}"
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "  {}%"
+    },
+    "bluetooth": {
+        "format": "  {status}",
+        "format-connected": "  {num_connections} Connected",
+        "format-connected-battery": "  {device_alias} 󰥉 {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t󰥉{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    }
+}
