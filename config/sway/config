@@ -33,9 +33,6 @@ workspace 2 output DP-1
 workspace 3 output DP-1
 workspace 4 output DP-2
 
-# application binding
-assign [class="Steam"] workspace 3
-
 ### Border configuration and eye candy stuff
 gaps inner 12
 gaps outer 4
@@ -128,7 +125,7 @@ for_window [app_id="rofi"] opacity 0.95, blur disable
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+p exec ~/.local/bin/rofi-powermenu.sh
 #
 # Moving around:
 #
@@ -259,3 +256,18 @@ exec swaybg -i ~/.config/sway/wallpapers/catppuccino-mocha-mountains.jpg -m fill
 exec waybar
 
 include /etc/sway/config.d/*
+
+assign [app_id="ghostty" title="^Home$"] workspace 1
+assign [app_id="ghostty" title="^Dev-Space$"] workspace 2
+assign [class="steam"] workspace 3
+
+exec tmux start-server \; source-file ~/.tmux.conf
+
+exec swaymsg "exec steam"
+exec swaymsg "exec ghostty --title='Dev-Space' --command='tmux new-session -A -s dev-space'"
+exec swaymsg "exec ghostty --title='Home' --command='tmux new-session -A -s home'"
+exec swaymsg "exec workspace 4; exec google-chrome"
+exec swaymsg "exec workspace 1"
+
+
+
