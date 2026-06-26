@@ -13,3 +13,7 @@ TMUX_PLUGIN_DIR=$HOME/.tmux/plugins/tpm
 if [ ! -d "$TMUX_PLUGIN_DIR" ]; then
     git clone --depth 1 https://github.com/tmux-plugins/tpm "$TMUX_PLUGIN_DIR"
 fi
+
+systemctl --user enable --now tmux-start.service
+systemctl --user enable --now tmux-stop.service
+

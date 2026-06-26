@@ -213,7 +213,7 @@ for_window [app_id="rofi"] opacity 0.95, blur disable
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    bindsym $mod+t scratchpad show
 #
 # Resizing containers:
 #
@@ -257,15 +257,17 @@ exec waybar
 
 include /etc/sway/config.d/*
 
-assign [app_id="ghostty" title="^Home$"] workspace 1
-assign [app_id="ghostty" title="^Dev-Space$"] workspace 2
+assign [app_id="ghostty" title="^home$"] workspace 1
+assign [app_id="ghostty" title="^dev-space$"] workspace 2
 assign [class="steam"] workspace 3
 
-exec tmux start-server \; source-file ~/.tmux.conf
+for_window [app_id="ghostty" title="^scratch$"] move scratchpad
+for_window [app_id="ghostty" title="^scratch$"] resize set width 85 ppt, height 80 ppt
 
+exec swaymsg "exec $term --title='home' --command='tmux new-session -A -s home'"
+exec swaymsg "exec $term --title='dev-space' --command='tmux new-session -A -s dev-space'"
+exec swaymsg "exec $term --title='scratch' --command='tmux new-session -A -s scratch'"
 exec swaymsg "exec steam"
-exec swaymsg "exec $term --title='Dev-Space' --command='tmux new-session -A -s dev-space'"
-exec swaymsg "exec $term --title='Home' --command='tmux new-session -A -s home'"
 exec swaymsg "exec workspace 4; exec google-chrome"
 exec swaymsg "exec workspace 1"
 

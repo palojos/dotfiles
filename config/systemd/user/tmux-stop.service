@@ -1,0 +1,13 @@
+[Unit]
+Description=Flush Stateful Tmux Session cleanly to disk on logout
+DefaultDependencies=no
+Before=sway-session-shutdown.target
+RequiredBy=sway-session-shutdown.target
+
+[Service]
+Type=oneshot
+
+ExecStart=/usr/bin/tmux run-shell %h/.tmux/plugins/tmux-resurrect/scripts/save.sh
+
+[Install]
+WantedBy=sway-session-shutdown.target

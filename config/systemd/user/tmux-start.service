@@ -1,0 +1,12 @@
+[Unit]
+Description=Start headless tmux server
+PartOf=sway-session.target
+After=sway-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/tmux start-server \; source-file %h/.tmux.conf
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sway-session.target
