@@ -264,8 +264,8 @@ assign [class="steam"] workspace 3
 exec tmux start-server \; source-file ~/.tmux.conf
 
 exec swaymsg "exec steam"
-exec swaymsg "exec ghostty --title='Dev-Space' --command='tmux new-session -A -s dev-space'"
-exec swaymsg "exec ghostty --title='Home' --command='tmux new-session -A -s home'"
+exec swaymsg "exec $term --title='Dev-Space' --command='tmux new-session -A -s dev-space'"
+exec swaymsg "exec $term --title='Home' --command='tmux new-session -A -s home'"
 exec swaymsg "exec workspace 4; exec google-chrome"
 exec swaymsg "exec workspace 1"
 

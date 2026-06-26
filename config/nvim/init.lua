@@ -23,21 +23,6 @@ vim.opt.swapfile = false       -- Disable annoying .swp files
 vim.opt.backup = false         -- Prevent duplicate backup files
 vim.opt.undofile = true        -- Maintain permanent undo history across file closes
 
--- --- 5. NATIVE CATPPUCCIN MOCHA COLORSCHEME FALLBACK ---------------------
--- Set a premium dark palette matching Mocha's terminal specifications
-vim.cmd([[
-  highlight Normal guibg=#1e1e2e guifg=#cdd6f4
-  highlight LineNr guifg=#585b70
-  highlight CursorLineNr guifg=#cba6f7 gui=bold
-  highlight Visual guibg=#313244
-  highlight Search guibg=#f38ba8 guifg=#11111b
-  highlight StatusLine guibg=#181825 guifg=#cdd6f4
-  highlight VertSplit guifg=#313244 guibg=NONE
-]])
-
-vim.keymap.set("v", "<", "<gv", { desc = "Shift indent left and keep selection" })
-vim.keymap.set("v", ">", ">gv", { desc = "Shift indent right and keep selection" })
-
 -- Lazy.nvim setup
 -- 1. Map your leader key to Space (crucial to do BEFORE loading plugins)
 vim.g.mapleader = " "
@@ -68,3 +53,16 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   checker = { enabled = false }, -- Prevents random background update notifications
 })
+
+-- 4. Custom keymaps
+
+vim.keymap.set("n", "<leader>p", require("telescope.builtin").find_files, { desc = "Fuzzy Find Files" }) 
+vim.keymap.set("v", "<", "<gv", { desc = "Shift indent left and keep selection" })
+vim.keymap.set("v", ">", ">gv", { desc = "Shift indent right and keep selection" })
+
+vim.keymap.set({ "n", "v", "o" }, "H", "^", { desc = "Start of Line (First non-blanck)"})
+vim.keymap.set({ "n", "v", "o" }, "L", "$", { desc = "End of Line"})
+
+vim.keymap.set({ "n", "v" }, "<leader>H", "gg", { desc = "End of Line"})
+vim.keymap.set({ "n", "v" }, "<leader>L", "G", { desc = "End of Line"})
+
