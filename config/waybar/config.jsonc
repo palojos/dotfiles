@@ -34,7 +34,7 @@
     "pulseaudio": {
         "format": "{icon}  {volume}%",
         "format-bluetooth": "󰂯 {icon} {volume}%",
-        "format-muted": "󰝟  Muted",
+        "format-muted": "󰝟  --%",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -44,7 +44,8 @@
             "car": "",
             "default": ["󰕿", "󰖀", "󰕾"]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
     "network": {
