@@ -26,7 +26,7 @@ vim.opt.undofile = true        -- Maintain permanent undo history across file cl
 -- Lazy.nvim setup
 -- 1. Map your leader key to Space (crucial to do BEFORE loading plugins)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ","
 
 -- 2. Automatically download lazy.nvim from GitHub if it's missing
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
