@@ -250,6 +250,12 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
+
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioStop exec playerctl stop
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioPrev exec playerctl previous
+
 exec swaybg -i ~/.config/sway/wallpapers/catppuccino-mocha-mountains.jpg -m fill
 exec waybar
 
@@ -269,5 +275,6 @@ exec swaymsg "exec steam"
 exec swaymsg "exec workspace 4; exec google-chrome"
 exec swaymsg "exec workspace 1"
 
-
+for_window [app_id="gamescope"] move window to output DP-1, floating enable, border none, fullscreen enable, inhibit_idle open
+for_window [class="gamescope"] move window to output DP-1, floating enable, border none, fullscreen enable, inhibit_idle openor_window [app_id="gamescope"] floating enable, border none
 
