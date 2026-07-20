@@ -48,7 +48,7 @@ vim.opt.rtp:prepend(lazypath)
 -- 3. Execute lazy.nvim and tell it to load everything inside lua/plugins/
 require("lazy").setup({
     spec = {
-        { import = "plugins" }, -- This automatically scans the lua/plugins folder!
+        { import = "plugins" }, -- This automatically scans the lua/plugins/ folder!
     },
     install = { colorscheme = { "habamax" } },
     checker = { enabled = false }, -- Prevents random background update notifications
@@ -63,5 +63,5 @@ vim.keymap.set("v", ">", ">gv", { desc = "Shift indent right and keep selection"
 vim.keymap.set({ "n", "v", "o" }, "H", "^", { desc = "Start of Line (First non-blanck)" })
 vim.keymap.set({ "n", "v", "o" }, "L", "$", { desc = "End of Line" })
 
-vim.keymap.set({ "n", "v" }, "<leader>H", "gg", { desc = "End of Line" })
-vim.keymap.set({ "n", "v" }, "<leader>L", "G", { desc = "End of Line" })
+vim.keymap.set({ "n", "v" }, "<leader>H", "gg", { desc = "Start of Buffer" })
+vim.keymap.set({ "n", "v" }, "<leader>L", "G", { desc = "End of Buffer" })
