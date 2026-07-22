@@ -18,10 +18,8 @@
         "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
-            "1": "",      // Web + Terminal combo for your main ultrawide layer
-            "2": "󰅩",         // Dedicated developer workspace signature
-            "3": "󰓓",         // Official Valve Steam gaming glyph
-            "default": ""    // Bullet fallback for any dynamic layouts you make later
+            "1": "",
+            "default": ""
         }
     },
 
@@ -34,7 +32,7 @@
     "pulseaudio": {
         "format": "{icon}  {volume}%",
         "format-bluetooth": "󰂯 {icon} {volume}%",
-        "format-muted": "󰝟  --%",
+        "format-muted": "󰝟 --%",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -94,7 +92,7 @@
         "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
-            "4": "",
+            "2": "",
             "default": ""
         }
     }

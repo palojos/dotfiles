@@ -29,9 +29,7 @@ output DP-2 {
 }
 
 workspace 1 output DP-1
-workspace 2 output DP-1
-workspace 3 output DP-1
-workspace 4 output DP-2
+workspace 2 output DP-2
 
 ### Border configuration and eye candy stuff
 gaps inner 12
@@ -202,7 +200,6 @@ for_window [app_id="rofi"] opacity 0.95, blur disable
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
 # Scratchpad:
 #
     # Sway has a "scratchpad", which is a bag of holding for windows.
@@ -262,19 +259,12 @@ exec waybar
 include /etc/sway/config.d/*
 
 assign [app_id="ghostty" title="^home$"] workspace 1
-assign [app_id="ghostty" title="^dev-space$"] workspace 2
-assign [class="steam"] workspace 3
 
 for_window [app_id="ghostty" title="^scratch$"] move scratchpad
 for_window [app_id="ghostty" title="^scratch$"] resize set width 85 ppt, height 80 ppt
 
 exec swaymsg "exec $term --title='home' --command='tmux new-session -A -s home'"
-exec swaymsg "exec $term --title='dev-space' --command='tmux new-session -A -s dev-space'"
 exec swaymsg "exec $term --title='scratch' --command='tmux new-session -A -s scratch'"
-exec swaymsg "exec steam"
-exec swaymsg "exec workspace 4; exec google-chrome"
+exec swaymsg "exec workspace 2; exec google-chrome"
 exec swaymsg "exec workspace 1"
-
-for_window [app_id="gamescope"] move window to output DP-1, floating enable, border none, fullscreen enable, inhibit_idle open
-for_window [class="gamescope"] move window to output DP-1, floating enable, border none, fullscreen enable, inhibit_idle openor_window [app_id="gamescope"] floating enable, border none
 
