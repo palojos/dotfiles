@@ -3,10 +3,14 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
+        local cmp_nvim_lsp = require "cmp_nvim_lsp"
+
+        local capabilities = cmp_nvim_lsp.default_capabilities()
 
         mason.setup()
         mason_lspconfig.setup({
@@ -22,6 +26,7 @@ return {
             cmd = { "lua-language-server" },
             filetypes = { "lua" },
             root_markers = { ".luarc.json", ".luarc.jsonc", ".stylua.toml", "stylua.toml", ".git" },
+            capabilities = capabilities,
             settings = {
                 Lua = {
                     runtime = {
@@ -45,6 +50,7 @@ return {
             cmd = { "haskell-language-server-wrapper", "--lsp" },
             filetypes = { "haskell", "lhaskell", "cabal" },
             root_markers = { "hie.yaml", "stack.yaml", "cabal.project", "*.cabal" },
+            capabilities = capabilities,
             settings = {
                 haskell = {
                     formattingProvider = "ormolu",
@@ -59,13 +65,15 @@ return {
             cmd = { "racket", "--lib", "racket-langserver" },
             filetypes = { "racket", "scheme" },
             root_markers = { "info.rkt" },
+            capabilities = capabilities,
         })
 
         vim.lsp.config("ruff", {
             cmd = { "ruff", "server" },
             filetypes = { "python" },
+            capabilities = capabilities,
             on_attach = function(client, _)
-                client.server_capabilities.hvoerProvider = false
+                client.server_capabilities.hoverProvider = false
             end,
         })
 
