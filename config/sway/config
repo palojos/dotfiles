@@ -22,14 +22,14 @@ output DP-1 {
 }
 
 # 2. Secondary Portrait Display - Rotated and Maxed to 144Hz
-output DP-2 {
+output HDMI-A-1 {
     mode 1920x1080@144.001Hz
     transform 90
     pos 3440 -240
 }
 
 workspace 1 output DP-1
-workspace 2 output DP-2
+workspace 2 output HDMI-A-1
 
 ### Border configuration and eye candy stuff
 gaps inner 12

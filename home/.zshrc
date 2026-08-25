@@ -27,6 +27,7 @@ ZSH_CONFIG="$HOME/.config/zsh"
 [[ -f "$ZSH_CONFIG/env.zsh" ]]       && source "$ZSH_CONFIG/env.zsh"
 [[ -f "$ZSH_CONFIG/aliases.zsh" ]]   && source "$ZSH_CONFIG/aliases.zsh"
 [[ -f "$ZSH_CONFIG/functions.zsh" ]] && source "$ZSH_CONFIG/functions.zsh"
+[[ -f "$ZSH_CONFIG/completions.zsh" ]] && source "$ZSH_CONFIG/completions.zsh"
 
 # Extension packages
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

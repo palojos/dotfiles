@@ -80,7 +80,7 @@
     "layer": "top",
     "position": "top",
     "height": 32,
-    "output": "DP-2", // Locks this minimal layout onto your vertical coding monitor
+    "output": "HDMI-A-1", // Locks this minimal layout onto your vertical coding monitor
 
     // Minimal setup: Only keep workspaces on the left edge, clear everything else out
     "modules-left": ["sway/workspaces"],

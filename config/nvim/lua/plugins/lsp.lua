@@ -77,7 +77,14 @@ return {
             end,
         })
 
-        vim.lsp.enable({ "racket_langserver", "pyright", "ruff", "ts_ls", "hls", "lua_ls" })
+        vim.lsp.config("elixirls", {
+            cmd = { vim.fn.expand("~/.local/lib/elixir-ls/language_server.sh") },
+            filetypes = { "elixir", "eelixir", "heex", "surface" },
+            root_markers = { "mix.exs" },
+            capabilities = capabilities,
+        })
+
+        vim.lsp.enable({ "racket_langserver", "pyright", "ruff", "ts_ls", "hls", "lua_ls", "elixirls" })
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)
